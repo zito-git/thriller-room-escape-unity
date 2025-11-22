@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
+        
+        FindObjectOfType<SubtitleManager>().ShowSubtitle("소환사의 협곡에 오신것을 환영합니다.",3f);
     }
 
     void Update()
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * moveSpeed * Time.deltaTime);
 
         // ----- 애니메이션 처리 -----
+        
         bool isMoving = (h != 0 || v != 0);
         animator.SetBool("is_working", isMoving);
     }
